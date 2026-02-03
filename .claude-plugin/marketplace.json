@@ -1,0 +1,27 @@
+{
+  "name": "local-seo-auditor",
+  "version": "1.0.0",
+  "description": "Comprehensive Local SEO Audit skill suite with sequential workflow, three-channel scoring (Map Pack, Organic, AI Search), and 16 specialized audit phases.",
+  "author": "SEOptimize LLC",
+  "repository": "https://github.com/SEOptimize-LLC/Local-SEO-Auditor",
+  "license": "MIT",
+  "skills": [
+    "skills/local-seo-audit",
+    "skills/discovery-intake",
+    "skills/gbp-audit",
+    "skills/review-audit",
+    "skills/local-citation-audit",
+    "skills/local-keyword-research",
+    "skills/map-pack-analysis",
+    "skills/local-on-page-audit",
+    "skills/local-landing-pages",
+    "skills/technical-seo-local",
+    "skills/local-schema-markup",
+    "skills/local-link-audit",
+    "skills/local-content-strategy",
+    "skills/local-competitor-analysis",
+    "skills/ai-search-visibility",
+    "skills/site-architecture-local",
+    "skills/local-seo-reporting"
+  ]
+}
