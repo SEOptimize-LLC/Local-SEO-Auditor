@@ -50,11 +50,26 @@ The following DataForSEO MCP tools are available and should be used as the prima
 - `mcp__dfs-mcp__content_analysis_search` — Content analysis
 - `mcp__dfs-mcp__kw_data_dfs_trends_explore` — Keyword trends
 
+**CRITICAL — API Cost Optimization:**
+Most DFS API endpoints support up to **2,000 requests per single API call** via batch/array payloads. You MUST always batch requests to minimize API costs:
+- **ALWAYS** read the DFS MCP tool documentation before making calls (use `mcp__dfs-mcp__tools_documentation` or `mcp__n8n-mcp__tools_documentation` to check parameters)
+- **ALWAYS** batch multiple keywords, URLs, or domains into a single API call instead of making individual calls
+- Example: To get search volume for 50 keywords, send ALL 50 in one `kw_data_google_ads_search_volume` call — NOT 50 separate calls
+- Example: To check SERP results for 20 keywords, send ALL 20 in one `serp_organic_live_advanced` call
+- This reduces API costs by up to 2,000x
+- If unsure whether an endpoint supports batching, check the documentation FIRST
+
 ### User-Provided Data
-Request these exports when needed:
-- **GSC:** Keyword Performance (last 16 months), Page Performance
-- **Semrush:** Domain Overview, Organic Positions, Keyword Gap, Backlink Audit
-- **Screaming Frog:** Full crawl export (only for sites with 100+ URLs)
+
+See `templates/data-requirements.md` for the full list of reports, how to export them, and recommended folder structure.
+
+The user will provide a project folder path at the start of each audit containing data exports in a `data/` subfolder. Reports are organized by source:
+- `data/semrush/` — Domain Overview, Organic Positions, Keyword Gap, Keyword Magic, Backlink Audit
+- `data/gsc/` — Keyword Performance (last 16 months), Page Performance
+- `data/screaming-frog/` — Full crawl export (only for sites with 100+ URLs)
+- `data/gbp/` — GBP Insights export (if available)
+
+When reading user-provided CSVs, always check the file exists before processing. If a report is missing, note the gap and proceed with available data + DFS MCP tools.
 
 ## Audit Workflow
 
